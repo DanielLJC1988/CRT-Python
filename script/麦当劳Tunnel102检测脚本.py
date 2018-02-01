@@ -32,7 +32,7 @@ while True:
 			crt.Screen.Send("888888" + chr(13))
 			crt.Screen.WaitForStrings("#")
 			crt.Screen.Send("show ip inter brief | include Tunnel102" + chr(13))
-			time.sleep(2)
+			time.sleep(3)
 			ScreenRowTunnel = crt.Screen.CurrentRow - 1
 			outTunnel102 = crt.Screen.Get(ScreenRowTunnel,0,ScreenRowTunnel,80)
 			writelog.write(pingIP + "  " + outTunnel102 + "\n")

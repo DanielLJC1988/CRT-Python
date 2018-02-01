@@ -32,13 +32,14 @@ while True:
 			crt.Screen.WaitForString("Password: ")
 			crt.Screen.Send("1^pvbM^a" + chr(13))
 			crt.Screen.WaitForStrings("#")
-			crt.Screen.Send("show runn | se ip route " + chr(13))
-			time.sleep(2)
-			screenrow = crt.Screen.CurrentRow - 3
+			crt.Screen.Send("show runn | se ip route 0.0.0.0 " + chr(13))
+			time.sleep(4)
+			screenrow = crt.Screen.CurrentRow - 1
 			out = crt.Screen.Get(screenrow,26,screenrow,60)
+			crt.Dialog.MessageBox(out)
 			######rfind = out.rfind('.254')
 			crt.Screen.Send("conf t" + chr(13))
-			time.sleep(0.5)
+			time.sleep(3)
 			##crt.Screen.Send("ip route 192.168.255.0 255.255.255.0 169.3.24.1 name fashion-TYMGM   " + chr(13))
 			time.sleep(0.3)
 			crt.Screen.Send("ip route 58.246.64.26 255.255.255.255 "  + out + " name adidas-cu   " + chr(13))
@@ -56,9 +57,9 @@ while True:
 			writelog.write(pingIP + "  OK" + "\n")
 			crt.Screen.Send("end" + chr(13))
 			crt.Screen.Send("wr" + chr(13))
-			time.sleep(4)
+			time.sleep(5)
 			crt.Screen.Send("exit" + chr(13))
-			time.sleep(2)
+			time.sleep(3)
 			
 		else:
 			writelog.write(pingIP + "  time out" + "\n")
