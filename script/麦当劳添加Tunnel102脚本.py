@@ -95,7 +95,7 @@ while True:
 					ScreenRowGw1 = crt.Screen.CurrentRow - 1
 					outGw = crt.Screen.Get(ScreenRowGw1,41,ScreenRowGw1,70)
 					if (outGw == "e 116.246.14.201              "):
-						crt.Screen.Send("show runn | se ip route 114.80.232.134 " + chr(13))
+						crt.Screen.Send("show runn | se ip route 203.88.197.136 " + chr(13))
 						time.sleep(4)
 						ScreenRowGw2 = crt.Screen.CurrentRow - 1
 						outGw = crt.Screen.Get(ScreenRowGw2,41,ScreenRowGw2,70)
@@ -360,8 +360,8 @@ while True:
 			time.sleep(0.2)	
 			crt.Screen.Send(chr(13))
 			time.sleep(0.2)
-			crt.Screen.Send("do show ip sla summary  " + chr(13))
-			time.sleep(5)	
+			#crt.Screen.Send("do show ip sla summary  " + chr(13))
+			#time.sleep(5)	
 			
 			#track部分
 			crt.Screen.Send("track 1 ip sla 120  " + chr(13))
@@ -393,8 +393,8 @@ while True:
 			crt.Screen.Send(" object 3  " + chr(13))
 			time.sleep(0.1)
 			crt.Screen.Send(" delay down 80 up 1   " + chr(13))
-			time.sleep(15)
-			crt.Screen.Send("do show track brief   " + chr(13))
+			#time.sleep(15)
+			#crt.Screen.Send("do show track brief   " + chr(13))
 			time.sleep(0.2)
 			
 			crt.Screen.Send("kron occurrence every30m in 35 recurring system-startup    " + chr(13))
