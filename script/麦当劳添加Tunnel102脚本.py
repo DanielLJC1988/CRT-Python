@@ -75,7 +75,7 @@ while True:
 			
 			#查看获取tunnel source 接口
 			crt.Screen.Send("show runn | se tunnel source " + chr(13))
-			time.sleep(4)
+			time.sleep(6)
 			ScreenRowTunnelSource = crt.Screen.CurrentRow - 1
 			#outTunnelSource 获取的tunnel source接口
 			outTunnelSource = crt.Screen.Get(ScreenRowTunnelSource,16,ScreenRowTunnelSource,35)
@@ -95,7 +95,7 @@ while True:
 					ScreenRowGw1 = crt.Screen.CurrentRow - 1
 					outGw = crt.Screen.Get(ScreenRowGw1,41,ScreenRowGw1,70)
 					if (outGw == "e 116.246.14.201              "):
-						crt.Screen.Send("show runn | se ip route 203.88.197.136 " + chr(13))
+						crt.Screen.Send("show runn | se ip route 222.73.198.142 " + chr(13))
 						time.sleep(4)
 						ScreenRowGw2 = crt.Screen.CurrentRow - 1
 						outGw = crt.Screen.Get(ScreenRowGw2,41,ScreenRowGw2,70)
