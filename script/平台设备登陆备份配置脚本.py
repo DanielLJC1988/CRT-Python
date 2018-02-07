@@ -44,6 +44,7 @@ def Copyconfig():
 				crt.Dialog.MessageBox(outHostname)
 				#开始拷贝配置--------------------------------------------------------------------------------------------------------
 				writelog.write( outHostname + "\n")
+				writeCreate = open(r"c:/PythonLog/" + outHostname + ".txt","a")
 				crt.Screen.Send("show runn" + chr(13))
 				time.sleep(3)
 				while True:
@@ -53,20 +54,21 @@ def Copyconfig():
 						ScreenRowShow = crt.Screen.CurrentRow
 						printScreen = crt.Screen.Get2(1,1,31,150);
 						#crt.Dialog.MessageBox( printScreen)
-						writelog.write(printScreen )
+						writeCreate.write(printScreen )
 						time.sleep(0.1)
 						crt.Screen.Send(" ")
 					else:
 						#保存最后一次屏幕数据
 						printScreenFinnal = crt.Screen.Get2(1,1,31,150);
-						writelog.write(printScreenFinnal + "\n")
-						writelog.write( outHostname + " Config copy completed" + "\n\n\n\n\n")
+						writeCreate.write(printScreenFinnal + "\n")
+						writeCreate.write( outHostname + " Config copy completed" + "\n\n\n\n\n")
 						break
 				#--------------------------------------------------------------------------------------------------------------------------			
 				time.sleep(2)
 				crt.Screen.Send("exit" + chr(13) )
 				time.sleep(1)
 				crt.Screen.Clear()
+				writeCreate.close()
 				time.sleep(2)
 				
 			else:
