@@ -36,7 +36,7 @@ def Copyconfig():
 				crt.Screen.Send(code)
 				time.sleep(3)
 
-				crt.Screen.Send(chr(13) )
+				crt.Screen.Send(chr(13) )	
 				crt.Screen.WaitForStrings("#",2)
 				ScreenRowHostname = crt.Screen.CurrentRow
 				outHostname = crt.Screen.Get(ScreenRowHostname,1,ScreenRowHostname,35)
