@@ -4,12 +4,17 @@ import re
 import sys
 import os
 import time
+import datetime
 
 def Copyconfig():
 	crt.Screen.IgnoreCase = True
 
 	fping = open(r"c:/Python27/allsite.txt")
 	writelog = open("c:/Python27/allLog.txt","a+")
+	now = datetime.datetime.now()
+	timeNow = now.strftime('%Y.%m.%d')
+	path=r'c:/PythonLog/' + timeNow
+	os.makedirs(path)
 
 	while True:
 		time.sleep(0.3)
@@ -36,15 +41,15 @@ def Copyconfig():
 				crt.Screen.Send(code)
 				time.sleep(3)
 
-				crt.Screen.Send(chr(13) )	
+				crt.Screen.Send(chr(13) )
 				crt.Screen.WaitForStrings("#",2)
 				ScreenRowHostname = crt.Screen.CurrentRow
 				outHostname = crt.Screen.Get(ScreenRowHostname,1,ScreenRowHostname,35)
 				outHostname = str(outHostname).strip(' ')
-				crt.Dialog.MessageBox(outHostname)
+				#crt.Dialog.MessageBox(outHostname)
 				#ø™ ºøΩ±¥≈‰÷√--------------------------------------------------------------------------------------------------------
 				writelog.write( outHostname + "\n")
-				writeCreate = open(r"c:/PythonLog/" + outHostname + ".txt","a")
+				writeCreate = open(r"c:/PythonLog/" + timeNow + "/" + outHostname + ".txt","a")
 				crt.Screen.Send("show runn" + chr(13))
 				time.sleep(3)
 				while True:
