@@ -28,23 +28,23 @@ while True:
 				
 				
 			crt.Screen.WaitForString("Password: ",3)
-			time.sleep(0.5)
+			time.sleep(1)
 			crt.Screen.Send("888888" + chr(13))
 			crt.Screen.WaitForStrings("#")
 			crt.Screen.Send("show ip inter brief | include Tunnel102" + chr(13))
-			time.sleep(3)
+			time.sleep(5)
 			ScreenRowTunnel = crt.Screen.CurrentRow - 1
 			outTunnel102 = crt.Screen.Get(ScreenRowTunnel,0,ScreenRowTunnel,80)
 			writelog.write(pingIP + "  " + outTunnel102 + "\n")
 			
 			
 			crt.Screen.Send(chr(13) + "exit" + chr(13) )
-			time.sleep(1)
+			time.sleep(3)
 			#crt.Screen.Send("quit" + chr(13))
 			
 		else:
 			writelog.write(pingIP + "  time out" + "\n")
-			time.sleep(1)
+			time.sleep(3)
 			continue
 		
 	else:
