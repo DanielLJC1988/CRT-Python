@@ -1,7 +1,18 @@
-
+#! python2
+import re
 import sys
 import os
+import pyotp
 
-code = os.popen('python c:/Python27/test.py').read()
+def password():
+	T = pyotp.TOTP('AXX6DUCLASSE3DP7')
+	PWD = 'lujc' + T.now()
 
-print code
+	#f1 = open("c:/a.txt",'w')
+	#f1.write(PWD)
+	#f1.close()
+	#print PWD
+	return PWD
+PSW = password()
+print (PSW)
+
