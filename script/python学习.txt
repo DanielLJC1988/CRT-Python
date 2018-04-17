@@ -1,3 +1,14 @@
+python三大特性
+封装，多态，继承
+
+
+pycharm 2016.3激活
+使用方法：激活时选择License server 填入http://idea.imsxm.com 点击Active即可。
+
+报名网站：
+Raidenlu
+itheima462386
+
 tree	显示文件树形结构
 
 ls	显示列表
@@ -149,3 +160,212 @@ q:退出
 wq:保存并退出
 shift+zz：相当于wq
 ----------------
+
+
+----------------
+字典
+添加
+xxx [新的key] = value
+
+删除
+del xxx [key]
+
+修改
+xxx[已存在的key] = new_value
+
+查询
+xxx.get(key)
+----------------
+
+
+----------------
+for ----------else
+
+for xxx:
+
+else:
+-----------------
+
+
+
+------------------
+列表中的append-extend区别
+append(整体添加) 结果[11,22,33,[44,55]]
+extend(合并)     结果[11,22,33,44,55]
+a = [11,22,33]
+b = [44,55]
+
+a.extend(b)
+print(a)
+
+a.append(b)
+------------------
+
+
+------------------
+函数
+def 函数名()
+
+调用函数
+函数名()
+
+带有参数的函数
+
+
+------------------
+
+
+
+四种函数
+def hanshu():
+	pass
+	
+def hanshu():
+	return xxx
+	
+def hanshu(canshu):
+	pass
+	
+def hanshu(canshu):
+	return xxx
+
+---------------------
+
+不定长函数
+def xxx(a,b,*args,**kwargs):	
+
+*args 类似为多余的参数，已元组显示
+**kwargs类型为元组的参数，已字典显示
+
+
+居中打印
+print("|%s|" % str.center(10," "))   （双引号中间用中文空格）
+
+靠左
+str.ljust()
+str.rjust()
+
+拆分字符串
+str.split()
+
+合并字符串
+" ".join(str)
+
+
+私有属性方法（python没有真正意义的私有，只需要特殊处理还是能访问到类中的私有属性方法）
+外部调用时 _类名 => _类名__名称
+比如：xiaofang.__age 		 （访问不了）
+	  xiaofang._Women__age	 （改成这样即可）
+	  
+	  
+单继承
+方法重写
+私有属性和方法
+多继承
+多态
+类属性
+类方法
+静态方法
+方法综合使用
+单例（__new__方法，多值参数（*args 元组参数，**kwargs 字典参数；
+例子：def __new__(cls, *args, **kwargs):
+
+
+异常（try: except Exception as result)未知错误
+模块（import；from import) __name__属性
+单独测试模块时 使用，外部导入模块后不会执行测试的代码
+if __name__ == "__main__"
+	测试的代码
+	
+包
+制作模块
+pip
+文件操作
+
+eval函数（可以去除字符串两边的“号）
+eval("1 + 1")
+输出2
+
+列表生成式
+例子1：a = [i for i in range(1,18)]
+例子2：b = [i for i in range(10) if i%2==0]
+例子3：c = [(i,j) for i in range(3) for j in range(2)]
+例子4：d = [(i,j,k) for i in range(3) for j in range(2) for k in range(3)]
+
+匿名函数
+infors = [{"name":"laowang","age":10},{"name":"xiaoming","age":20}]
+infors.sort(key=lambda x:x['name'])
+
+用lambda关键词能创建小型匿名函数，这种函数得名于省略了用def声明函数的标准步骤
+lambda函数的语法值包含一个语句，如下：
+lambda [arg1 [arg2,.....argn]]:expression
+
+如下实例：
+sum = lambda arg1,arg2:arg1 + arg2
+#调用sum函数
+print “Value of total : ", sum(10, 20)
+#输出结果：
+Value of total : 30
+
+----------------------------------------
+例子1：
+def test1(a, b):
+    return a+b
+result1 = test1(11,22)
+
+test2 = lambda a,b:a+b
+result2 = test2(11,22)#调用匿名函数
+
+
+
+print("result1=%d,result2=%d"%(result1, result2))
+------------------------------------------------------
+例子2：
+def test(a,b,func):
+	result = func(a,b)
+	return result
+	
+num = test(11,22,lambda x,y:x+y)
+print(num)
+---------------------------------------
+例子3：
+def test(a,b,func):
+	result = func(a,b)
+	return result
+
+func_new = input("请输入一个匿名函数：")
+
+func_new = eval(func_new)
+num = test(11,22,func_new)
+print(num)
+----------------------------------
+
+--------------------------------
+定义常量
+常量的命名应该 所有字母都使用大写，单词之间用下划线连接
+
+
+-----------------
+模块中的__all__作用：控制模块中的方法，全局变量等可以被其他文件导入并使用
+__all__ = ["test1"]
+
+def test1():
+	print "test-1"
+	
+def test2():
+	print "test-2"
+-----------------
+
+包__init__作用：将很多.py文件放入一个文件中，在这个文件夹中新建
+一个__init__.py文件，
+在文件中写入__all__ = [xxxx包名]
+再写入 form . import xxxx包名()  
+才能是这些.py文件被导入（import导入法和form导入法）使用
+
+---去重----第一种是定义一个空列表，利用循环，第二种利用集合类型转换如下
+a = [1,2,3,3,2,1]
+b = set(a)
+a = list[b]
+输出a = [1,2,3]
+
+-----------
